@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -45,9 +46,9 @@ class MainActivity : ComponentActivity() {
 fun CartaoVisitaContainer() {
     Column(
         modifier = Modifier
-            .background(Color.DarkGray)
+            .background(Color(0xFF0a374d))
     ) {
-        HeaderCard(modifier = Modifier.weight(7f))
+        HeaderCard(modifier = Modifier.weight(7f))-
         ContactCard(modifier = Modifier.weight(2f))
     }
 }
@@ -67,15 +68,17 @@ fun HeaderCard(modifier: Modifier) {
                 .size(125.dp)
         )
         TextComponent(
-            "Título da app",
+            "Treino Kotlin",
             Color.White,
             45.sp,
+            FontWeight.Bold,
             Modifier
         )
         TextComponent(
-            "Subtítulo da app",
-            Color.Green,
+            "Davi Costa",
+            Color(0xFF3ddc84),
             25.sp,
+            FontWeight.SemiBold,
             Modifier
         )
     }
@@ -87,11 +90,11 @@ fun ContactCard(modifier: Modifier) {
         modifier = modifier.fillMaxWidth()
     ) {
         Divider(color = Color.Gray, thickness = 1.dp)
-        ContactText("+11 (123) 444 555 666", Icons.Rounded.Phone, Color.Green)
+        ContactText("+11 (123) 444 555 666", Icons.Rounded.Phone, Color(0xFF3ddc84))
         Divider(color = Color.Gray, thickness = 1.dp)
-        ContactText("@AndroidDev", Icons.Rounded.Share, Color.Green)
+        ContactText("@AndroidDev", Icons.Rounded.Share, Color(0xFF3ddc84))
         Divider(color = Color.Gray, thickness = 1.dp)
-        ContactText("jen.doe@android.com", Icons.Rounded.Send, Color.Green)
+        ContactText("jen.doe@android.com", Icons.Rounded.Send, Color(0xFF3ddc84))
     }
 }
 
@@ -117,6 +120,8 @@ fun ContactText(text: String, imageVector: ImageVector, tint: Color) {
         Text(
             text = text,
             color = Color.White,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Normal
         )
     }
 }
@@ -126,11 +131,13 @@ fun TextComponent(
     text: String,
     color: Color,
     fontSize: TextUnit,
+    fontWeight: FontWeight,
     modifier: Modifier
 ){
     Text(
         text = text,
         fontSize = fontSize,
+        fontWeight = fontWeight,
         color = color,
         modifier = modifier
     )
